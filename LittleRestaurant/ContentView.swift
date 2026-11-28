@@ -3,12 +3,16 @@ import Playgrounds
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            Image(systemName:"iphone")
-                .font(.system(size:50))
-            Text("Welcome to iOS 101!" )
-                .font(.title2)
-                .padding()
+        NavigationStack {
+            List {
+                NavigationLink("Reserve a Table") {
+                    ReservationForm()
+                }
+                NavigationLink("About Little Lemon") {
+                    AboutView()
+                }
+            }
+            .navigationTitle("Little Lemon")
         }
     }
 }
