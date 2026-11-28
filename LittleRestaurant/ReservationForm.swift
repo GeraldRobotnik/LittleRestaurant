@@ -36,7 +36,15 @@ struct ReservationForm: View {
                     .autocorrectionDisabled(true)
 
                 Stepper("Guests: \(guestCount)", value: $guestCount, in: 1...10)
+                if guestCount >= 8 {
+                    Text("Large group — please call ahead.")
+                }
+
                 Stepper("Children: \(children)", value: $children, in: 0...5)
+                if children > 0 {
+                    Text("High chairs are available on request.")
+                }
+
                 TextField("Occasion (Birthday, Anniversary, etc.)", text: $occasion)
             }
 
